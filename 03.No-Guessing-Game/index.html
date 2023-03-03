@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>No Guessing Game</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background: linear-gradient(
+          109.6deg,
+          rgb(220, 196, 252) 11.2%,
+          rgb(150, 199, 253) 100.2%
+        );
+        height: 100vh;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+        background-color: #fff;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+          rgba(0, 0, 0, 0.22) 0px 15px 12px;
+      }
+
+      input {
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        border: 2px solid #6f1ab6;
+        margin: 1.5rem;
+        border-radius: 8px;
+      }
+
+      #btn {
+        color: #fff;
+        background-color: #6f1ab6;
+        border: unset;
+        padding: 15px 20px;
+        font-size: 16px;
+        border-radius: 10px;
+        transition: all 300ms ease;
+        cursor: pointer;
+      }
+
+      #btn:hover {
+        color: #6f1ab6;
+        border: 2px solid #6f1ab6;
+        background-color: unset;
+        transform: scale(0.9);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <p class="title">
+          I am thinking of a number between 1 - 50 can you guess it?
+        </p>
+
+        <div class="gBody">
+          <input type="number" name="" id="input" min="0" max="50" />
+          <br />
+          <button id="btn" onclick="checkNo()">Guess</button>
+        </div>
+
+        <div class="gFooter">
+          <p id="status">Enter a No...</p>
+          <p id="takes">No. of guesses :</p>
+          <p id="guessedno">Guessed numbers are :</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let no = Math.floor(Math.random() * 50) + 1;
+
+      let guessCount = 0;
+
+      let guessedNo;
+
+      function checkNo() {
+        let inputValue = document.getElementById("input").value;
+
+        if (inputValue < no) {
+          document.getElementById("status").innerHTML = "Your guess is too low";
+          guessCount++;
+          document.getElementById("takes").innerHTML = `No. of guesses : ${guessCount}`;
+          document.getElementById("guessedno").innerHTML += ` ${inputValue} `;
+        } else if (inputValue > no) {
+          document.getElementById("status").innerHTML =
+            "Your guess is too high";
+
+          guessCount++;
+          document.getElementById("takes").innerHTML = `No. of guesses : ${guessCount}`;
+          document.getElementById("guessedno").innerHTML += ` ${inputValue} `;
+        } else if (inputValue == no) {
+          document.getElementById("status").innerHTML = "Yippie you win🎊🎉";
+
+          document.getElementById("takes").innerHTML = `The number was : ${no}`;
+
+          document.getElementById("guessedno").innerHTML = `Your total guesses are : ${guessCount + 1}`;
+          guessCount = 0;
+        } else {
+          document.getElementById("status").innerHTML = "hello";
+        }
+      }
+    </script>
+  </body>
+</html>

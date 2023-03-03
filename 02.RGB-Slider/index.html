@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RGB Slider</title>
+
+    <style>
+      body {
+        background-color: #93bfcf;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      .container {
+        width: 100%;
+        background-color: #fff;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+        max-width: 400px;
+      }
+
+      .wrapper > input {
+        width: 90%;
+        margin: 10px;
+      }
+
+      #value {
+        text-align: center;
+        background-color: #362fd9;
+        color: #fff;
+        padding: 1.5rem;
+        width: max-content;
+        margin: 1rem auto;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <label for="rrange">R</label>
+        <input
+          type="range"
+          name=""
+          id="red"
+          min="0"
+          max="255"
+          oninput="changeBg()"
+        />
+
+        <br />
+
+        <label for="grange">G</label>
+        <input
+          type="range"
+          name=""
+          id="green"
+          min="0"
+          max="255"
+          oninput="changeBg()"
+        />
+
+        <br />
+
+        <label for="brange">B</label>
+        <input
+          type="range"
+          name=""
+          id="blue"
+          min="0"
+          max="255"
+          oninput="changeBg()"
+        />
+
+        <p id="value">rgb(255, 255, 255)</p>
+      </div>
+    </div>
+
+    <script>
+      function changeBg() {
+        let red = document.getElementById("red").value;
+        let green = document.getElementById("green").value;
+        let blue = document.getElementById("blue").value;
+
+        let bgColor = "rgb(" + red + "," + green + "," + blue + ")";
+
+        document.body.style.backgroundColor = bgColor;
+
+        document.getElementById("value").innerHTML = bgColor;
+      }
+    </script>
+  </body>
+</html>

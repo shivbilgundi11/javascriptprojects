@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+    <!--Google Font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="img__container">
+          <img src="./images/1img.jpg" alt="" class="img"/>
+          <img src="./images/2img.jpg" alt="" class="hidden img" />
+          <img src="./images/3img.jpg" alt="" class="hidden img" />
+          <img src="./images/4img.jpg" alt="" class="hidden img" />
+          <img src="./images/5img.jpg" alt="" class="hidden img" />
+          <img src="./images/6img.jpg" alt="" class="hidden img" />
+          <img src="./images/7img.jpg" alt="" class="hidden img" />
+          <img src="./images/8img.jpg" alt="" class="hidden img" />
+
+          <button id="prev" class="arrow" onclick="controller(-1)">&lt;</button>
+          <button id="next" class="arrow" onclick="controller(1)">&gt;</button>
+        </div>
+
+        <div class="pagination">
+          <button id="1page" class="btn active" onclick="dot(0)"></button>
+          <button id="2page" class="btn" onclick="dot(1)"></button>
+          <button id="3page" class="btn" onclick="dot(2)"></button>
+          <button id="4page" class="btn" onclick="dot(3)"></button>
+          <button id="5page" class="btn" onclick="dot(4)"></button>
+          <button id="6page" class="btn" onclick="dot(5)"></button>
+          <button id="7page" class="btn" onclick="dot(6)"></button>
+          <button id="8page" class="btn" onclick="dot(7)"></button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
